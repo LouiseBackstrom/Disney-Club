@@ -60,3 +60,26 @@ let createContainer = document.getElementById("message")
     setTimeout(function () { 
         window.location.reload() }, 1500)
 }
+
+const formUpdate = document.getElementById('update')
+formUpdate.addEventListener('submit', update)
+
+function update(event) {
+    event.stopPropagation()
+    event.preventDefault()
+
+    const formData = new FormData(event.target)
+    const character = {}
+    for (const pair of formData.entries()) {
+        const [key, value] = pair
+        character[key] = value
+    }
+
+    fetch("/characters", {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(character)
+})
+}
