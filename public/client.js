@@ -61,7 +61,8 @@ let createContainer = document.getElementById("message")
         window.location.reload() }, 1500)
 }
 
-const formUpdate = document.getElementById('update')
+
+const formUpdate = document.getElementById('updateCharacter')
 formUpdate.addEventListener('submit', update)
 
 function update(event) {
@@ -69,17 +70,28 @@ function update(event) {
     event.preventDefault()
 
     const formData = new FormData(event.target)
-    const character = {}
+    const updatedCharacter = {}
     for (const pair of formData.entries()) {
         const [key, value] = pair
-        character[key] = value
+        updatedCharacter[key] = value
     }
-
-    fetch("/characters", {
+    const id = document.getElementById("updateId").value 
+    const name = document.getElementById("updateName").value 
+    fetch("/characters/" + id, {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(character)
+    body: JSON.stringify(updatedCharacter)
 })
+
+let createContainer = document.getElementById("updateMessage")
+   
+let updateMessage = document.createElement("h4")
+message.innerText = name + " har uppdaterats"
+createContainer.appendChild(updateMessage) 
+
+setTimeout(function () { 
+    window.location.reload() }, 1500)
+
 }
