@@ -9,12 +9,12 @@ Content-Type: application/json
 {
  "name": "Jasmine",
  "movie": "Aladdin",
- "bestFriend": "Alladdin"
+ "bestFriend": "Aladdin"
 }
 
 ###
 
-PUT http://localhost:3000/characters/5eb45b983e41f962754e16ac
+PUT http://localhost:3000/characters/5eb56a2fcc4b018360bc076d
 Content-Type: application/json
 
 {

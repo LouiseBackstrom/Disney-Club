@@ -26,19 +26,25 @@ router.get('/characters', async (req, res) => {
     }
   })
 
-
 // Update
 router.put('/characters/:id', async (req, res) => {
 
   try {
-    const character = await characterModel.findByIdAndUpdate(req.params.id, req.body)
-    await characterModel.save()
-
-    if (!character) res.status(404).send("No item found")
-    res.send(character)
+    const id = req.params.id
+    const character = await characterModel.findByIdAndUpdate(id, req.body)
+    await character.save()
+    res.json({
+      old: character,
+      new: req.body  
+    })
+  
   } catch (err) {
+    if (err.code = 11000) {
+      res.status(400).json('Character has already been created')
+    } else {
     res.status(500).send(err)
   }
+}
 })
 
 // Delete
