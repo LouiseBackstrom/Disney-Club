@@ -6,24 +6,24 @@ POST http://localhost:3000/characters/
 Content-Type: application/json
 
 {
-    "name": "Ella",
-    "movie": "Storm",
-    "bestFriend": "Ellen",
-    "username": "Elias"
+    "name": "Moana",
+    "movie": "Moana",
+    "bestFriend": "Hay-Hay",
+    "username": "Ellen"
 }
 
 ###
 
-PUT http://localhost:3000/characters/5ed95960b79eba55c0353f9b
+PUT http://localhost:3000/characters/5edbe4cdac96b55d3cc3f1cf
 Content-Type: application/json
 
 {
-    "name": "Christoph",
-    "movie": "Frozen",
-    "bestFriend": "Anna"
+    "name": "Jasmine",
+    "movie": "Aladdin",
+    "bestFriend": "Aladdin"
 }
 
 ###
 
-DELETE http://localhost:3000/characters/5ed9520e1058cd07287bb8d1
+DELETE http://localhost:3000/characters/5edbe63bac96b55d3cc3f1d8
 

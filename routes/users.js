@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
         return res.status(401).json('Wrong user or password')
     } else {
         req.session.user = user
-        console.log(user)
+        
         res.status(200).json('You are logged in')
     }
 

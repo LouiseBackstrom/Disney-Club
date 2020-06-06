@@ -37,7 +37,6 @@ router.get('/characters/', async (req, res) => {
 
 // Update
 router.put('/characters/:id', requireSignIn, async (req, res) => {
-  
   try {
     const character = await characterModel.findOne({ _id: req.params.id })
     
@@ -45,21 +44,19 @@ router.put('/characters/:id', requireSignIn, async (req, res) => {
       res.status(404).json('No character found')
     } 
 
-    if (character.user == req.session.user._id){
-      character = new characterModel(Object.assign(character, req.body))
-      await character.save()
-      res.json({
-        old: character,
-        new: req.body
-      })
+    if (req.session.user._id == character.user) {
+      const updatedCharacter = new characterModel(Object.assign(character, req.body))
+      await updatedCharacter.save()
+      res.status(200).json('Your character has been updated')
     }
-    
-    res.status(403).json('You can not change another users character!')
-    
+
+    if (req.session.user._id !== character.user){
+      res.status(403).json('You can not change another users character!')
+    } 
   } catch (err) {
     res.status(500).send(err)
   }
- 
+
 })
 
 // Delete
