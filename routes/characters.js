@@ -39,14 +39,14 @@ router.get('/characters/', async (req, res) => {
 router.put('/characters/:id', requireSignIn, async (req, res) => {
   
   try {
-    const id = req.params.id;
-    const character = await characterModel.findByIdAndUpdate(id, req.body)
+    const character = await characterModel.findOne({ _id: req.params.id })
     
     if (!character) {
       res.status(404).json('No character found')
     } 
 
     if (character.user == req.session.user._id){
+      character = new characterModel(Object.assign(character, req.body))
       await character.save()
       res.json({
         old: character,
