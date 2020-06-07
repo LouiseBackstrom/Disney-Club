@@ -150,15 +150,15 @@ function allCharacters(characters) {
     characters.forEach(character => {
         let characterHeadline = document.createElement("h4")
         characterHeadline.innerText = character.name + " in " + character.movie
-        let characterName = document.createElement("p")
+        let characterName = document.createElement("h5")
         characterName.innerText = "Disney Character: " + character.name
-        let characterMovie = document.createElement("p")
+        let characterMovie = document.createElement("h5")
         characterMovie.innerText = "Disney Movie: " + character.movie
-        let characterBestFriend = document.createElement("p")
+        let characterBestFriend = document.createElement("h5")
         characterBestFriend.innerText = "Best Friend: " + character.bestFriend
-        let characterId = document.createElement("p")
+        let characterId = document.createElement("h5")
         characterId.innerText = "Disney Id : " + character._id
-        let userName = document.createElement("p")
+        let userName = document.createElement("h5")
         userName.innerText = "Created By : " + character.username
         
         let characterDiv = document.createElement("div")

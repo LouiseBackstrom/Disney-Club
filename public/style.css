@@ -131,9 +131,20 @@ article p {
   margin: 2rem;
 }
 
-h2, h3, h4 {
+h2, h3 {
   text-align: center; 
   color: darkblue;
+  margin: 1rem;
+}
+
+h4 {
+  text-align: center; 
+  color: white;
+  margin: 0.5rem;
+}
+
+h5 {
+  color: white;
 }
 
 #getAllCharacters {
