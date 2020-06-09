@@ -19,7 +19,7 @@ function allCharacters(characters) {
         let characterId = document.createElement("h5")
         characterId.innerText = "Disney Id : " + character._id
         let userName = document.createElement("h5")
-        userName.innerText = "Created By : " + character.username
+        userName.innerText = "Created By : " + character.user.user
 
         let characterDiv = document.createElement("div")
         characterDiv.classList.add("all")

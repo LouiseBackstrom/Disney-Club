@@ -1,12 +1,11 @@
-GET http://localhost:3000/characters/userPosts/5ed979557ae9ae3b34e74fe8
-
+GET http://localhost:3000/characters
 ###
 
 POST http://localhost:3000/characters/
 Content-Type: application/json
 
 {
-    "name": "Moana",
+    "name": "Hay",
     "movie": "Moana",
     "bestFriend": "Hay-Hay",
     "username": "Ellen"
