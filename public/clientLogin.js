@@ -11,7 +11,10 @@ function registerUser(event) {
     event.preventDefault()
 
     const formData = new FormData(event.target)
-    const user = {}
+    const user = {
+        user: "",
+        password: ""
+    }
     for (const pair of formData.entries()) {
         const [key, value] = pair
         user[key] = value
@@ -26,11 +29,23 @@ function registerUser(event) {
         }).then((response) => {
 
             if(response.status === 400) {
-               console.log("user already exists")
-            } 
+                console.log("user already exists")
+                let createContainer = document.getElementById("registerMessage")
+                let registerMessage = document.createElement("h4")
+                registerMessage.innerText = "User already exists"
+                createContainer.appendChild(registerMessage)
+           
+            } else {
+                let createContainer = document.getElementById("registerMessage")
+                let registerMessage = document.createElement("h4")
+                registerMessage.innerText = user.user + " has been registered"
+                createContainer.appendChild(registerMessage)
+            }
 
         })
-        
+        setTimeout(function () {
+            window.location.reload()
+        }, 1000) 
 }
 
 // Login user
@@ -60,6 +75,10 @@ function loginUser(event) {
         }).then((response) => {
 
             if(response.status === 401) {
+                let createContainer = document.getElementById("loginErrorMessage")
+                let loginErrorMessage = document.createElement("h4")
+                loginErrorMessage.innerText = "Wrong username or password"
+                createContainer.appendChild(loginErrorMessage)
                
             } else { 
                 let createContainer = document.getElementById("user-login")
@@ -70,5 +89,7 @@ function loginUser(event) {
             }
 
         })
-        
+    setTimeout(function () {
+        window.location.reload()
+    }, 1000)  
 }

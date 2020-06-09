@@ -113,7 +113,7 @@ function deleteCharacter(event) {
 
         if(response.status === 404) {
            console.log('No character found')
-           let createContainer = document.getElementById("updateMessage")
+           let createContainer = document.getElementById("deleteMessage")
            let updateMessage = document.createElement("h4")
            updateMessage.innerText = "No character found"
            createContainer.appendChild(updateMessage)
@@ -126,7 +126,7 @@ function deleteCharacter(event) {
         }
         if (response.status === 403) {
             console.log('You can not delete another users charcter!')
-            let createContainer = document.getElementById("updateMessage")
+            let createContainer = document.getElementById("deleteMessage")
             let updateMessage = document.createElement("h4")
             updateMessage.innerText = "You can not delete another users charcter!"
             createContainer.appendChild(updateMessage)

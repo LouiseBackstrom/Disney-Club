@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 app.use(cookieSession({
     secret: 'secretKey',
-    maxAge: 1000 * 1000, // 10s
+    maxAge: 1000 * 1000, 
     sameSite: 'strict',
     httpOnly: true,
     secure: false,
